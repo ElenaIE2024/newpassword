@@ -22,7 +22,7 @@ jobs:
         run: dotnet restore ./PasswordLibrary/PasswordLibrary.slnx
 
       - name: Build solution
-        run: dotnet build ./PasswordLibrary/PasswordLibrary.slnx --configuration Release --no-restore
+        run: dotnet build ./PasswordLibrary/PasswordLibrary.slnx --configuration Release
 
       - name: Run unit tests
         run: dotnet build ./TestPassword/TestPassword.csproj /t:Test /p:Configuration=Release /p:TrxLogFileName=test-results.trx /p:TrxResultsDirectory=./test-output --no-restore
