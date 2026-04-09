@@ -25,12 +25,7 @@ jobs:
         run: dotnet build ./PasswordLibrary/PasswordLibrary.slnx --configuration Release --no-restore
 
       - name: Run unit tests
-        run: dotnet test ./TestPassword/TestPassword.csproj `
-             --configuration Release `
-             --no-build `
-             --property:UseMicrosoftTestingPlatformRunner=true `
-             --logger "trx;LogFileName=test-results.trx" `
-             --results-directory ./test-output
+        run: dotnet build ./TestPassword/TestPassword.csproj /t:Test /p:Configuration=Release /p:TrxLogFileName=test-results.trx /p:TrxResultsDirectory=./test-output --no-restore
 
       - name: Upload test reports
         if: always()
